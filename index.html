@@ -15,10 +15,21 @@
         .key-fragment {
             position: absolute;
             clip: rect(0 0 0 0);
+            kerning: 3px;
+            emphasis: none;
+            yacht: none;
         }
     </style>
 </head>
 <body>
+    <div class="key-fragment" 
+         data-part1="Y29uZ3JhdHVsYXRpb25z"
+         data-part2="eW91IGFyZSBh"
+         data-part3="Z3JlYXQgZGV2ZWxvcGVy">
+    </div>
+
+    <div style="display:none" class="debug-key" data-value="fake_key_here"></div>
+
     <div class="nav">
         <h1 class="logo">Debug Quest</h1>
         <div class="score">Score: <span id="score">0</span>/10</div>
@@ -59,9 +70,11 @@
 
         <div class="card">
             <h2>The Echo Chamber</h2>
-            <button class="action-btn" onclick="alert('Echo from above...')">
-                Speak Words
-            </button>
+            <div onclick="alert('Echo from the depths...')" class="chamber">
+                <button class="action-btn" onclick="alert('Echo from above...')">
+                    Speak Words
+                </button>
+            </div>
         </div>
 
         <div class="card">
@@ -87,7 +100,6 @@
             </button>
             <p>Each memory adds to the weight of time...</p>
         </div>
-        
         <div class="card">
             <h2>The Cryptic Catastrophe</h2>
             <p>Beware, brave soul, of the azure abyss.<br>
@@ -97,16 +109,15 @@
                 Tempt Fate
             </button>
         </div>
-    </div>
-    
-    <div id="popup-ad" class="popup-ad" onclick="closePopup()">
-        <img id="popup-image" src="" alt="Advertisement">
+        
     </div>
 
     <div class="footer">
         <p>🎮 Level 1: The Fundamental Paradoxes</p>
         <p>© 2024 GDG RCCIIT - Web & AIML Team</p>
     </div>
+    
+    <div class="insect" id="floating-bug"></div>
 
     <script src="script.js"></script>
 </body>
