@@ -37,6 +37,13 @@ function updateScore(points) {
     scoreElement.innerText = currentScore + points;
 }
 
+function fetchSecretMessage() {
+    fetch('https://api.example.com/secret')
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error('Error fetching secret message:', error));
+}
+
 function triggerFullScreenImage() {
     const image = document.createElement('img');
     image.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Bsodwindows10.png/1200px-Bsodwindows10.png'; 
@@ -116,26 +123,4 @@ function checkProgress() {
     }
 }
 
-const numberOfBugs = 5;
-let viewportHeight = window.innerHeight;
-let viewportWidth = window.innerWidth;
-
-function createBug() {
-    const bug = document.createElement('div');
-    bug.classList.add('insect');
-    bug.style.position = 'absolute';
-    bug.style.top = `${Math.random() * viewportHeight}px`;
-    bug.style.left = `${Math.random() * viewportWidth}px`;
-    bug.style.animationDelay = `${Math.random() * 5}s`;
-
-    document.body.appendChild(bug);
-
-    setInterval(() => {
-        bug.style.top = `${Math.random() * viewportHeight}px`;
-        bug.style.left = `${Math.random() * viewportWidth}px`;
-    }, 3000 + Math.random() * 2000);
-}
-
-for (let i = 0; i < numberOfBugs; i++) {
-    createBug();
-}
+// Removed bug creation code
