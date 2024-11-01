@@ -125,6 +125,8 @@ function checkProgress() {
     }
 }
 
+
+
 document.addEventListener('keysequence', function(e) {
     if (e.detail.sequence === 'debugquest') {
         console.log("You're getting closer!");
