@@ -113,8 +113,8 @@ function decodeMessage() {
 
 document.querySelectorAll('.action-btn').forEach(btn => {
     btn.addEventListener('click', (e) => {
+        e.preventDefault();
         e.stopPropagation();
-        console.log('Button clicked');
     });
 });
 
@@ -124,7 +124,6 @@ function checkProgress() {
         alert('Level complete!');
     }
 }
-
 
 
 document.addEventListener('keysequence', function(e) {
