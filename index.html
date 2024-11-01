@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <title>🎮 Debug Quest | GDG RCCIIT</title>
     <link rel="stylesheet" href="styles.css">
-    <meta name="k1" content="R1JFQVRfREVWRUxPUEVS" />
-    <meta name="k2" content="U0VDUkVUX0tFWQ==" />
+    <meta name="k1" content="GREAT_DEVELOPER" />
+    <meta name="k2" content="SECRET_KEY" />
     <style>
         .debug-key::after {
             --secret: "76616c7565";
@@ -30,6 +30,8 @@
 
     <div style="display:none" class="debug-key" data-value="fake_key_here"></div>
 
+    <script src="script.js"></script>
+
     <div class="nav">
         <h1 class="logo">Debug Quest</h1>
         <div class="score">Score: <span id="score">0</span>/10</div>
@@ -40,20 +42,24 @@
             <h2>The Vanishing Act</h2>
             <p>When once was there, now isn't near,<br>
                Click once or twice, watch it disappear.</p>
-            <button class="action-btn" onclick="this.style.visibility = 'hidden'">
-                Solve Me
+            <button class="action-btn">
+                 Solve Me
             </button>
         </div>
 
         <div class="card">
             <h2>The Counter's Tale</h2>
-            <p>Numbers dance, but something's wrong,<br>
-               The sequence plays a different song.</p>
+            <p>
+                Numbers dance, but something's wrong,<br>
+                The sequence plays a different song.
+            </p>
             <p>Points: <span id="points">0</span></p>
-            <button class="action-btn" onclick="document.getElementById('points').innerHTML += 1">
+            <button class="action-btn" onclick="document.getElementById('points').innerHTML = parseInt(document.getElementById('points').innerHTML) + 1">
                 Count Up
             </button>
         </div>
+        
+       
 
         <div class="card">
             <h2>The Restless Message</h2>
@@ -70,8 +76,8 @@
 
         <div class="card">
             <h2>The Echo Chamber</h2>
-            <div onclick="alert('Echo from the depths...')" class="chamber">
-                <button class="action-btn" onclick="alert('Echo from above...')">
+            <div class="chamber">
+                <button class="action-btn">
                     Speak Words
                 </button>
             </div>
@@ -100,7 +106,6 @@
             </button>
             <p>Each memory adds to the weight of time...</p>
         </div>
-        
         <div class="card">
             <h2>The Cryptic Catastrophe</h2>
             <p>Beware, brave soul, of the azure abyss.<br>
@@ -110,12 +115,15 @@
                 Tempt Fate
             </button>
         </div>
+        
     </div>
-    
+
     <div class="footer">
         <p>🎮 Level 1: The Fundamental Paradoxes</p>
         <p>© 2024 GDG RCCIIT - Web & AIML Team</p>
     </div>
+    
+    <div class="insect" id="floating-bug"></div>
 
     <script src="script.js"></script>
 </body>

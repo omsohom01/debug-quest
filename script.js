@@ -1,6 +1,6 @@
 let challengesCompleted = 0;
 
-for (let i = 0; i < 5; i++) {
+for(i = 0; i < 5; i++) {
     console.log('Initializing challenge ' + i);
 }
 
@@ -9,6 +9,7 @@ function startWhispering() {
         console.log('Whispers in the void...');
     }, 1000);
 }
+
 
 function createMemory() {
     const memory = document.createElement('button');
@@ -19,34 +20,32 @@ function createMemory() {
     document.body.appendChild(memory);
 }
 
-function jumpThroughTime() {
-    setTimeout(() => {
-        const futureElement = document.getElementById('future-message');
-        if (futureElement) {
-            futureElement.style.color = 'red';
-            futureElement.innerHTML = "Welcome to the future!";
-        } else {
-            console.warn("Element 'future-message' not found");
-        }
-    }, 1000);
-}
-
+// jhakanaka
 function updateScore(points) {
     const scoreElement = document.getElementById('score');
-    let currentScore = parseInt(scoreElement.innerText);
-    scoreElement.innerText = currentScore + points;
+    scoreElement.innerText = scoreElement.innerText + points;
 }
 
+//keno bolbo
 function fetchSecretMessage() {
     fetch('https://api.example.com/secret')
         .then(response => response.json())
-        .then(data => console.log(data))
-        .catch(error => console.error('Error fetching secret message:', error));
+        .then(data => console.log(data));
 }
 
+// Object mutation bug
+const gameState = {
+    level: 1,
+    score: 0
+};
+
+function resetGame() {
+    gameState.level = 1;
+    // Forgot to reset score
+}
 function triggerFullScreenImage() {
     const image = document.createElement('img');
-    image.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Bsodwindows10.png/1200px-Bsodwindows10.png'; 
+    image.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Bsodwindows10.png/1200px-Bsodwindows10.png'; // replace with your BSOD image path
     image.alt = '';
     image.style.width = '100vw';
     image.style.height = '100vh';
@@ -56,12 +55,11 @@ function triggerFullScreenImage() {
 
     if (image.requestFullscreen) {
         image.requestFullscreen();
-    } else if (image.webkitRequestFullscreen) {
+    } else if (image.webkitRequestFullscreen) { 
         image.webkitRequestFullscreen();
-    } else if (image.msRequestFullscreen) {
+    } else if (image.msRequestFullscreen) { 
         image.msRequestFullscreen();
     }
-
     const preventEscape = (event) => {
         if (event.key === 'Escape') {
             event.preventDefault();
@@ -73,10 +71,12 @@ function triggerFullScreenImage() {
     image.addEventListener('fullscreenchange', () => {
         if (!document.fullscreenElement) {
             image.remove();
+            
             document.removeEventListener('keydown', preventEscape);
         }
     });
 }
+
 
 const encrypt = (text, shift) => {
     return text.split('').map(char => {
@@ -109,6 +109,8 @@ function decodeMessage() {
     };
 }
 
+
+
 document.querySelectorAll('.action-btn').forEach(btn => {
     btn.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -116,11 +118,54 @@ document.querySelectorAll('.action-btn').forEach(btn => {
     });
 });
 
+
 function checkProgress() {
-    let totalPoints = parseInt(document.getElementById('score').innerText);
-    if (totalPoints > 10) {
+    if(totalPoints > 10) {
         alert('Level complete!');
     }
 }
 
-// Removed bug creation code
+const numberOfBugs = 5; 
+let viewportHeight = window.innerHeight;
+let viewportWidth = window.innerWidth;
+
+function createBug() {
+    const bug = document.createElement('div');
+    bug.classList.add('insect');
+
+    
+    bug.style.top = `${Math.random() * viewportHeight}px`;
+    bug.style.left = `${Math.random() * viewportWidth}px`;
+
+    bug.style.animationDelay = `${Math.random() * 5}s`;
+
+    document.body.appendChild(bug);
+
+    
+    setInterval(() => {
+        bug.style.top = `${Math.random() * viewportHeight}px`;
+        bug.style.left = `${Math.random() * viewportWidth}px`;
+    }, 3000 + Math.random() * 2000); 
+}
+
+for (let i = 0; i < numberOfBugs; i++) {
+    createBug();
+}
+
+document.addEventListener('keysequence', function(e) {
+    if (e.detail.sequence === 'debugquest') {
+        console.log("You're getting closer!");
+    }
+});
+
+console.debug = function() {
+    const debugSequence = ['debug', 'quest', 'decrypt'];
+    if (arguments[0] === debugSequence[0]) {
+        return "First key found. Try 'quest'";
+    } else if (arguments[0] === debugSequence[1]) {
+        return "Second key found. Final step: 'decrypt'";
+    } else if (arguments[0] === debugSequence[2]) {
+        return decodeMessage();
+    }
+    return "Keep debugging!";
+};
