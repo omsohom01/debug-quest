@@ -125,33 +125,6 @@ function checkProgress() {
     }
 }
 
-const numberOfBugs = 5; 
-let viewportHeight = window.innerHeight;
-let viewportWidth = window.innerWidth;
-
-function createBug() {
-    const bug = document.createElement('div');
-    bug.classList.add('insect');
-
-    
-    bug.style.top = `${Math.random() * viewportHeight}px`;
-    bug.style.left = `${Math.random() * viewportWidth}px`;
-
-    bug.style.animationDelay = `${Math.random() * 5}s`;
-
-    document.body.appendChild(bug);
-
-    
-    setInterval(() => {
-        bug.style.top = `${Math.random() * viewportHeight}px`;
-        bug.style.left = `${Math.random() * viewportWidth}px`;
-    }, 3000 + Math.random() * 2000); 
-}
-
-for (let i = 0; i < numberOfBugs; i++) {
-    createBug();
-}
-
 document.addEventListener('keysequence', function(e) {
     if (e.detail.sequence === 'debugquest') {
         console.log("You're getting closer!");
