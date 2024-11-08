@@ -169,5 +169,108 @@
     </div>
     <script src="script.js"></script> 
 </body>
+<!-- Add this HTML just before your footer -->
+<div class="visitor-counter">
+    <div class="counter-label">VISITORS</div>
+    <div class="counter-display">
+        <div class="counter-dot"></div>
+        <span id="visitorCount">0000</span>
+    </div>
+</div>
+
+<!-- Add this CSS to your existing styles.css -->
+<style>
+.visitor-counter {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #000;
+    border: 2px solid #0f0;
+    padding: 10px;
+    font-family: monospace;
+    color: #0f0;
+    z-index: 1000;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+}
+
+.counter-label {
+    font-size: 12px;
+    text-align: center;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.counter-display {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.counter-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #0f0;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+#visitorCount {
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.3; }
+    100% { opacity: 1; }
+}
+
+/* Add some hover effects to match your theme */
+.visitor-counter:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+}
+</style>
+
+
+<script>
+// Initialize the counter
+function initVisitorCounter() {
+    // Try to get the count from localStorage
+    let count = localStorage.getItem('visitorCount');
+    
+    if (!count) {
+        // If no count exists, start with a random number between 1000-9999
+        count = 93;
+        localStorage.setItem('visitorCount', count);
+    } else {
+        // If returning visitor, increment the count
+        count = parseInt(count) + 1;
+        localStorage.setItem('visitorCount', count);
+    }
+    
+
+    updateCounterDisplay(count);
+    
+    
+    setInterval(() => {
+        count++;
+        localStorage.setItem('visitorCount', count);
+        updateCounterDisplay(count);
+    }, 60000); 
+}
+
+
+function updateCounterDisplay(count) {
+    const countDisplay = document.getElementById('visitorCount');
+    countDisplay.textContent = count.toString().padStart(4, '0');
+}
+
+// Initialize when the page loads
+document.addEventListener('DOMContentLoaded', initVisitorCounter);
+</script>
 </html>
 
