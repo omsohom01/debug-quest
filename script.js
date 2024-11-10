@@ -768,32 +768,7 @@ function embarkOnAdventure() {
     }, 3000); 
     createBugs();
 }
-function createBugs() {
-    const numberOfBugs = 5000; 
-    const bugs = ['🐜', '🐞', '🕷️', '🐍', '🦗', '🕸️', '🐛']; 
 
-    for (let i = 0; i < numberOfBugs; i++) {
-        const bug = document.createElement('span'); 
-        const randomBug = bugs[Math.floor(Math.random() * bugs.length)]; 
-        bug.textContent = randomBug; 
-        bug.classList.add('bug'); 
-        bug.style.position = 'absolute'; 
-        bug.style.fontSize = '24px'; 
-        bug.style.left = Math.random() * 100 + 'vw'; 
-        bug.style.top = Math.random() * 100 + 'vh'; 
-        bug.style.transition = 'transform 5s linear'; 
-
-        document.body.appendChild(bug); 
-
-        setTimeout(() => {
-            bug.style.transform = `translateY(100vh)`; 
-        }, 100);
-
-        setTimeout(() => {
-            bug.remove(); 
-        }, 6000); 
-    }
-}
 function startRotation() {
     const gridDiv = document.querySelector(".grid");
     
