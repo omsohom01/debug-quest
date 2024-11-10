@@ -120,7 +120,7 @@ function triggerFullScreenImage() {
     videoOverlay.style.backgroundColor = "black";
 
     const videoElement = document.createElement("video");
-    videoElement.src = "Windows.mp4"; 
+    videoElement.src = "you-are-my-sunshine.mp4"; 
     videoElement.autoplay = true; 
     videoElement.loop = false; 
     videoElement.controls = false; 
@@ -1093,26 +1093,3 @@ function createMouseTrail(event) {
     }, 1000); 
 }
 
-function triggerTimeMachine() {
-    const randomIp = generateRandomIp();
-
-    const fakeIpElement = document.getElementById('fake-ip');
-    fakeIpElement.innerText = `Your IP Address: ${randomIp}`; // Set the generated IP address
-    fakeIpElement.style.display = 'block'; // Show the IP address
-
-    narrateIpAddress(randomIp);
-}
-
-function generateRandomIp() {
-    const randomPart = () => Math.floor(Math.random() * 256); 
-    return `${randomPart()}.${randomPart()}.${randomPart()}.${randomPart()}`;
-}
-
-function narrateIpAddress(ip) {
-    const utterance = new SpeechSynthesisUtterance(`Your IP address is ${ip}`);
-    utterance.rate = 0.9; 
-    utterance.pitch = 1; 
-    speechSynthesis.speak(utterance);
-}
-
-displayIpMessage();
