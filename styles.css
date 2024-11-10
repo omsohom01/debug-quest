@@ -3134,14 +3134,17 @@ body.shake-active {
 }
 
 #celebrate-button {
-    background: linear-gradient(45deg, #ffffff, #ff0000); /* A celebratory orange gradient */
+    position: absolute; /* Change to absolute positioning */
+    bottom: 20px; /* Position it 20px from the bottom of the card */
+    left: 50%; /* Center it horizontally */
+    transform: translateX(-50%); /* Adjust for centering */
+    background: linear-gradient(45deg, #ffffff, #ff0000); /* A celebratory gradient */
     color: rgb(0, 0, 0);
     padding: 12px 20px;
     font-size: 1.2rem;
     border-radius: 50px;
     transition: all 0.1s ease;
     cursor: pointer;
-    position: relative;
     font-family: 'Dancing Script', cursive, sans-serif; /* Cursive font */
 }
 
@@ -3154,7 +3157,6 @@ body.shake-active {
 #celebrate-button:focus {
     outline: none;
 }
-
 /* Flickering Light Effect for the background */
 @keyframes flicker {
     0% { opacity: 1; }
@@ -3507,3 +3509,4 @@ body {
     animation: squeezeStretch 0.5s infinite; /* Apply the squeeze/stretch animation */
     animation-timing-function: ease-in-out; /* Smooth transition */
 }
+

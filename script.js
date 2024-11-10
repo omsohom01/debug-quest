@@ -60,7 +60,7 @@ function triggerScreenDespair() {
     }
 }
 
-setInterval(triggerScreenDespair, 15000); // Trigger every 15 seconds
+
 
 const eerieSounds = ["sound1.mp3", "sound2.mp3", "sound3.mp3"];
 function playRandomSound() {
