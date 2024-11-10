@@ -1,17 +1,3 @@
-window.onload = function() {
-    const userResponse = prompt("Hello! Welcome to the mysterious world. Are you ready for what lies ahead?");
-    
-    if (userResponse === null || userResponse.trim() === "") {
-        alert("I didn't quite get you, but hope you'll have a blast anyway!");
-    } else if (userResponse.toLowerCase() === "yes") {
-        alert("Great! You're ready for the adventure ahead!");
-    } else if (userResponse.toLowerCase() === "no") {
-        alert("That's alright, maybe next time!");
-    } else {
-        alert("I didn't quite get you, but hope you'll have a blast anyway!");
-    }
-};
-
 
 let score = 0;
 document.getElementById("score").innerText = score;
@@ -283,12 +269,7 @@ function improveVanishingAct() {
     incrementPoints();
 
     
-    addGhostlyFigure();
-
-    const solveButton = document.querySelector('.solve-me'); 
-    const creepySound = document.getElementById('creepySound');
-    const creepyOverlay = document.getElementById('creepyOverlay');
-
+    
     solveButton.addEventListener('click', function() {
         creepySound.play();
         creepyOverlay.style.opacity = 1;
