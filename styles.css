@@ -1727,23 +1727,6 @@ Styles for the despair text
 
 
 /* Rotate for 20 seconds */
-@keyframes websiteShake {
-    0% { transform: translate(0); }
-    10% { transform: translate(-5px, 0); }
-    20% { transform: translate(5px, 0); }
-    30% { transform: translate(-5px, 0); }
-    40% { transform: translate(5px, 0); }
-    50% { transform: translate(-5px, 0); }
-    60% { transform: translate(5px, 0); }
-    70% { transform: translate(-5px, 0); }
-    80% { transform: translate(5px, 0); }
-    90% { transform: translate(-5px, 0); }
-    100% { transform: translate(0); }
-}
-
-body.shake-active {
-    animation: websiteShake 0.3s infinite; /* Apply shake effect */
-}
 
 /* Ensure hidden messages are initially hidden */
 .hidden-message {
@@ -3373,27 +3356,10 @@ body.shake-active {
     }
 }
 
-@keyframes randomMovement {
-    0% { transform: translate(0, 0); }
-    50% { transform: translate(10px, 5px); }
-    100% { transform: translate(-10px, -5px); }
-}
-
-body {
-    animation: randomMovement 3s infinite;
-}
-@keyframes randomScale {
-    0% { transform: scale(1); }
-    25% { transform: scale(1.1); }
-    50% { transform: scale(0.95); }
-    75% { transform: scale(1.05); }
-    100% { transform: scale(1); }
-}
 
 
-body {
-    animation: randomScale 3s infinite;
-}
+
+
 /* Body settings */
 body {
     background-color: #111; /* Dark background for visibility */
